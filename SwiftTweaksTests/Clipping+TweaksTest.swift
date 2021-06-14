@@ -8,7 +8,7 @@
 
 import XCTest
 
-private struct ClippingTestCase<T> where T: SignedNumber {
+private struct ClippingTestCase<T> where T: SignedNumeric & Comparable {
 	let inputValue: T
 	let min: T?
 	let max: T?

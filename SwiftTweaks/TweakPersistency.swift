@@ -92,11 +92,24 @@ private final class TweakDiskPersistency {
 		var result: TweakCache!
 
 		self.queue.sync {
-			result = (try? Foundation.Data(contentsOf: self.fileURL))
-				.flatMap(NSKeyedUnarchiver.unarchiveObject(with:))
-				.flatMap { $0 as? Data }
-				.map { $0.cache }
-				?? [:]
+			guard let data = try? Foundation.Data(contentsOf: self.fileURL) else {
+				return
+			}
+			
+			var cacheData: Data? = nil
+			do {
+				let unarchiver = try NSKeyedUnarchiver(forReadingFrom: data)
+				let classes = [Data.self, NSDictionary.self]
+				cacheData = unarchiver.decodeObject(of: classes, forKey: NSKeyedArchiveRootObjectKey) as? Data
+				unarchiver.finishDecoding()
+			} catch {
+				print("ERROR unarchiving", error)
+			}
+			if let cache = cacheData {
+				result = cache.cache
+			} else {
+				result = [:]
+			}
 		}
 
 		return result
@@ -104,7 +117,8 @@ private final class TweakDiskPersistency {
 
 	func saveToDisk(_ data: TweakCache) {
 		self.queue.async {
-			let nsData = NSKeyedArchiver.archivedData(withRootObject: Data(cache: data))
+			let nsData = try! NSKeyedArchiver.archivedData(withRootObject: Data(cache: data), requiringSecureCoding: true)
+			print("Saving", nsData.count)
 			try! nsData.write(to: self.fileURL, options: [.atomic])
 		}
 	}
@@ -114,7 +128,7 @@ private final class TweakDiskPersistency {
 	/// However, because re-hydrating TweakableType from its underlying NSNumber gets Bool & Int mixed up, we have to persist a different structure on disk: [TweakViewDataType: [String: AnyObject]]
 	/// This ensures that if something was saved as a Bool, it's read back as a Bool.
 	// NOTE (bryanjclark): The long string here is to preserve backwards-compatibility with pre-Swift4 SwiftTweaks archives.
-	@objc(_TtCC11SwiftTweaksP33_9992646B9FE5A082B6B2A55DA4E653F420TweakDiskPersistency4Data) private final class Data: NSObject, NSCoding {
+	@objc(_TtCC11SwiftTweaksP33_9992646B9FE5A082B6B2A55DA4E653F420TweakDiskPersistency4Data) private final class Data: NSObject, NSSecureCoding {
 		let cache: TweakCache
 
 		init(cache: TweakCache) {
@@ -157,12 +171,14 @@ private final class TweakDiskPersistency {
 				// ... and set the cached value inside the sub-dictionary.
 				diskPersistedDictionary[dataType]![key] = value.nsCoding
 			}
-
+			
 			// Now we persist the "dictionary of dictionaries" on disk!
 			for (key, value) in diskPersistedDictionary {
 				aCoder.encode(value, forKey: key.nsCodingKey)
 			}
 		}
+		
+		static var supportsSecureCoding: Bool { return true }
 
 		// Reads from the cache, casting to the appropriate TweakViewDataType
 		private static func tweakableTypeWithAnyObject(_ anyObject: AnyObject, withType type: TweakViewDataType) -> TweakableType? {

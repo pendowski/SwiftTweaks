@@ -19,9 +19,9 @@ class TweakButtonTests: XCTestCase {
 		originalButton.setBorderColor(.orange, for: .normal)
 		originalButton.setBorderColor(.green, for: .highlighted)
 		
-		let codedData = NSKeyedArchiver.archivedData(withRootObject: originalButton)
+		let codedData = try! NSKeyedArchiver.archivedData(withRootObject: originalButton, requiringSecureCoding: false)
 		
-		guard let decodedButton = NSKeyedUnarchiver.unarchiveObject(with: codedData) as? TweakButton else {
+		guard let decodedButton = try! NSKeyedUnarchiver.unarchivedObject(ofClass: TweakButton.self, from: codedData) else {
 			XCTFail()
 			return
 		}

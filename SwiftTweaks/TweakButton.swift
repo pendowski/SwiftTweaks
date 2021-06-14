@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class TweakButton: UIButton {
+final class TweakButton: UIButton, NSSecureCoding {
 	
 	typealias ControlState = UInt
 	
@@ -30,12 +30,12 @@ final class TweakButton: UIButton {
 		didSet { updateState() }
 	}
 	
-	func setBorderColor(_ color: UIColor, for state: UIControlState = .normal) {
+	func setBorderColor(_ color: UIColor, for state: UIControl.State = .normal) {
 		borderColors[state.rawValue] = color
 		updateState()
 	}
 	
-	func borderColor(for state: UIControlState) -> UIColor? {
+	func borderColor(for state: UIControl.State) -> UIColor? {
 		return borderColors[state.rawValue]
 	}
 	
@@ -66,6 +66,10 @@ final class TweakButton: UIButton {
 		aCoder.encode(CGVector(dx: cornerRadius, dy: 0), forKey: #keyPath(cornerRadius))
 		aCoder.encode(type(of: self).encodeBorderColors(from: borderColors), forKey: #keyPath(borderColors))
 	}
+	
+	// MARK: - NSSecureCoding
+	
+	static var supportsSecureCoding: Bool { return true }
 	
 	// MARK: - Private
 	

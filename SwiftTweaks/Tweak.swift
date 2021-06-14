@@ -93,7 +93,7 @@ extension Tweak {
 	public static func stringList(_ collectionName: String, _ groupName: String, _ tweakName: String, options: [String], defaultValue: String?=nil) -> Tweak<StringOption> {
 		precondition(!options.isEmpty, "Options list cannot be empty (stringList tweak \"\(tweakName)\")")
 		precondition(
-			defaultValue == nil || (defaultValue != nil && options.index(of: defaultValue!) != nil),
+			defaultValue == nil || (defaultValue != nil && options.firstIndex(of: defaultValue!) != nil),
 			"The default value \"\(String(describing: defaultValue))\" of the stringList tweak \"\(tweakName)\" must be in the list of options \"\(options)\""
 		)
 
@@ -157,8 +157,8 @@ extension Tweak: TweakType {
 }
 
 extension Tweak: Hashable {
-	public var hashValue: Int {
-		return tweakIdentifier.hashValue
+	public func hash(into hasher: inout Hasher) {
+		hasher.combine(tweakIdentifier)
 	}
 }
 

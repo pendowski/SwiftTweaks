@@ -17,9 +17,9 @@ public struct MultiTweakBindingIdentifier: Hashable {
 		self.tweakSet = tweakSet
 		self.identifier = UUID()
 	}
-
-	public var hashValue: Int {
-		return "\(tweakSet.hashValue)\(TweakIdentifierSeparator)\(identifier)".hashValue
+	
+	public func hash(into hasher: inout Hasher) {
+		hasher.combine("\(tweakSet.hashValue)\(TweakIdentifierSeparator)\(identifier)")
 	}
 }
 

@@ -94,6 +94,7 @@
 		AA356AF51EB3C5FC0063F4E2 /* TweakCallbacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA356AEF1EB3B5A90063F4E2 /* TweakCallbacks.swift */; };
 		AA356AF61EB3C6550063F4E2 /* TweakButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA356AF11EB3B7730063F4E2 /* TweakButton.swift */; };
 		AA3BD55A1F2E6B1D007912C0 /* TweakButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3BD5591F2E6B1D007912C0 /* TweakButtonTests.swift */; };
+		AA9B1E672677A85F00074320 /* TweakPersistencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9B1E662677A85F00074320 /* TweakPersistencyTests.swift */; };
 		B0E03A551CFF818900BFB1E6 /* TweakDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E03A541CFF818900BFB1E6 /* TweakDebug.swift */; };
 		B0E03A571CFF86E900BFB1E6 /* TweakDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E03A541CFF818900BFB1E6 /* TweakDebug.swift */; };
 		D5CE0BDC1DC7DFC200F79235 /* TweakBindingIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CE0BDB1DC7DFC200F79235 /* TweakBindingIdentifier.swift */; };
@@ -173,6 +174,7 @@
 		AA356AF11EB3B7730063F4E2 /* TweakButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweakButton.swift; sourceTree = "<group>"; };
 		AA356AF31EB3C5B40063F4E2 /* TweakCallbacksTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweakCallbacksTests.swift; sourceTree = "<group>"; };
 		AA3BD5591F2E6B1D007912C0 /* TweakButtonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweakButtonTests.swift; sourceTree = "<group>"; };
+		AA9B1E662677A85F00074320 /* TweakPersistencyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweakPersistencyTests.swift; sourceTree = "<group>"; };
 		B0E03A541CFF818900BFB1E6 /* TweakDebug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweakDebug.swift; sourceTree = "<group>"; };
 		D5CE0BDB1DC7DFC200F79235 /* TweakBindingIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweakBindingIdentifier.swift; sourceTree = "<group>"; };
 		D5CE0BDD1DC7E04A00F79235 /* MultiTweakBinding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiTweakBinding.swift; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 				930ECDB71DA6EEB9001009B3 /* TweakViewData+TweaksTests.swift */,
 				AA356AF31EB3C5B40063F4E2 /* TweakCallbacksTests.swift */,
 				AA3BD5591F2E6B1D007912C0 /* TweakButtonTests.swift */,
+				AA9B1E662677A85F00074320 /* TweakPersistencyTests.swift */,
 				93A84EE21BEAE86E0022D2F3 /* Info.plist */,
 			);
 			path = SwiftTweaksTests;
@@ -435,7 +438,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = "Khan Academy";
 				TargetAttributes = {
 					93A84ED01BEAE86E0022D2F3 = {
@@ -450,10 +453,11 @@
 			};
 			buildConfigurationList = 93A84ECB1BEAE86E0022D2F3 /* Build configuration list for PBXProject "SwiftTweaks" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 93A84EC71BEAE86E0022D2F3;
 			productRefGroup = 93A84ED21BEAE86E0022D2F3 /* Products */;
@@ -576,6 +580,7 @@
 				9314725E1BFFB41700F66D20 /* TweakGroup.swift in Sources */,
 				9314724C1BFFB41700F66D20 /* TweakWindow.swift in Sources */,
 				939F2CD01CB7197A00345E03 /* FloatingTweakGroupViewController.swift in Sources */,
+				AA9B1E672677A85F00074320 /* TweakPersistencyTests.swift in Sources */,
 				D5E3FEE91DC8760A00C9D648 /* MultiTweakBinding.swift in Sources */,
 				931472591BFFB41700F66D20 /* TweakStore.swift in Sources */,
 				931472571BFFB41700F66D20 /* AnyTweak.swift in Sources */,
@@ -607,18 +612,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -645,14 +654,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -663,18 +671,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -695,11 +707,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -710,6 +721,7 @@
 		93A84EE61BEAE86E0022D2F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -721,13 +733,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
 		93A84EE71BEAE86E0022D2F3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -739,13 +751,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
 		93A84EE91BEAE86E0022D2F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				INFOPLIST_FILE = SwiftTweaksTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.Khan-Academy.SwiftTweaksTests";
@@ -756,6 +768,7 @@
 		93A84EEA1BEAE86E0022D2F3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				INFOPLIST_FILE = SwiftTweaksTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.Khan-Academy.SwiftTweaksTests";
