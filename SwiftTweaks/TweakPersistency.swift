@@ -89,7 +89,7 @@ private final class TweakDiskPersistency {
 	}
 
 	func loadFromDisk() -> TweakCache {
-		var result: TweakCache!
+		var result: TweakCache = [:]
 
 		self.queue.sync {
 			guard let data = try? Foundation.Data(contentsOf: self.fileURL) else {
