@@ -205,7 +205,7 @@ extension TweakCollectionViewController: TweakGroupSectionHeaderDelegate {
 	}
 }
 
-private protocol TweakGroupSectionHeaderDelegate: class {
+private protocol TweakGroupSectionHeaderDelegate: AnyObject {
 	func tweakGroupSectionHeaderDidPressFloatingButton(_ sectionHeader: TweakGroupSectionHeader)
 }
 

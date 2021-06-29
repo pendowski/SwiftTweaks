@@ -94,6 +94,7 @@
 		AA356AF51EB3C5FC0063F4E2 /* TweakCallbacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA356AEF1EB3B5A90063F4E2 /* TweakCallbacks.swift */; };
 		AA356AF61EB3C6550063F4E2 /* TweakButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA356AF11EB3B7730063F4E2 /* TweakButton.swift */; };
 		AA3BD55A1F2E6B1D007912C0 /* TweakButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3BD5591F2E6B1D007912C0 /* TweakButtonTests.swift */; };
+		AA567B70268B885A00176DD3 /* Bundle+SPM.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA567B6F268B885A00176DD3 /* Bundle+SPM.swift */; };
 		AA9B1E672677A85F00074320 /* TweakPersistencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9B1E662677A85F00074320 /* TweakPersistencyTests.swift */; };
 		B0E03A551CFF818900BFB1E6 /* TweakDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E03A541CFF818900BFB1E6 /* TweakDebug.swift */; };
 		B0E03A571CFF86E900BFB1E6 /* TweakDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E03A541CFF818900BFB1E6 /* TweakDebug.swift */; };
@@ -174,6 +175,7 @@
 		AA356AF11EB3B7730063F4E2 /* TweakButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweakButton.swift; sourceTree = "<group>"; };
 		AA356AF31EB3C5B40063F4E2 /* TweakCallbacksTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweakCallbacksTests.swift; sourceTree = "<group>"; };
 		AA3BD5591F2E6B1D007912C0 /* TweakButtonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweakButtonTests.swift; sourceTree = "<group>"; };
+		AA567B6F268B885A00176DD3 /* Bundle+SPM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+SPM.swift"; sourceTree = "<group>"; };
 		AA9B1E662677A85F00074320 /* TweakPersistencyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweakPersistencyTests.swift; sourceTree = "<group>"; };
 		B0E03A541CFF818900BFB1E6 /* TweakDebug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweakDebug.swift; sourceTree = "<group>"; };
 		D5CE0BDB1DC7DFC200F79235 /* TweakBindingIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweakBindingIdentifier.swift; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 				93B058E21CC44D8900AB2759 /* Precision.swift */,
 				9338E9E61CB57068002A92BE /* UIImage+SwiftTweaks.swift */,
 				9338E9EC1CB575AF002A92BE /* AppTheme.swift */,
+				AA567B6F268B885A00176DD3 /* Bundle+SPM.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA567B70268B885A00176DD3 /* Bundle+SPM.swift in Sources */,
 				93AA344F1BEBBD2D004B734B /* TweakStore.swift in Sources */,
 				931A24721BFA77FB00E40192 /* TweakColorEditViewController.swift in Sources */,
 				939F2CD91CB810D300345E03 /* SpringAnimationTweakTemplate.swift in Sources */,
