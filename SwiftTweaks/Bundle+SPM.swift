@@ -8,7 +8,7 @@
 
 import Foundation
 
-#if !SPM
+#if !SWIFT_PACKAGE
 
 private class BundleFinder {}
 
