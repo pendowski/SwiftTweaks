@@ -10,7 +10,10 @@ let package = Package(
         .target(
             name: "SwiftTweaks",
             path: "SwiftTweaks",
-            exclude: ["Info.plist", "SwiftTweaks.h"]
+            exclude: ["Info.plist", "SwiftTweaks.h"],
+            resources: [
+                .process("Media")
+            ]
         ),
         .testTarget(
             name: "SwiftTweaksTests",
